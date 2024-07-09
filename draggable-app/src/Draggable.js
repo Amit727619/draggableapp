@@ -1,14 +1,12 @@
-// src/Draggable.js
 import React, { useState } from 'react';
 import './Draggable.css';
 
 const Draggable = ({ children, title }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [dragging, setDragging] = useState(false);
-  const [rel, setRel] = useState(null); // Position relative to the mouse
-
+  const [rel, setRel] = useState(null); 
   const onMouseDown = (e) => {
-    if (e.button !== 0) return; // Only left mouse button
+    if (e.button !== 0) return; 
     const pos = { x: e.pageX - position.x, y: e.pageY - position.y };
     setRel(pos);
     setDragging(true);
